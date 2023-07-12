@@ -1,15 +1,12 @@
+// routes/userRoutes.js
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/userController');
 
-
-import express   from 'express';
-import UserController from '../controllers/userController.js'
-import multerMW from '../core/multer.js'
-let router = express.Router();
-let userController = new UserController();
-
-router.post('/contacts', userController.userAdd.bind(userController));
-router.put('/contacts/:id', userController.userUpdate.bind(userController));
-router.get('/contacts', userController.getUsers.bind(userController));
-router.get('/contacts/:id', userController.getUserById.bind(userController));
-router.delete('/contacts/:id', userController.deleteUser.bind(userController));
-
-export default router;
+router.post('/createWithArray', userController.createUsersWithArray);
+router.get('/:username', userController.getUserByUsername);
+router.put('/:username', userController.updateUser);
+router.delete('/:username', userController.deleteUser);
+router.get('/login', userController.loginUser);
+router.get('/logout', userController.logoutUser);
+module.exports = router;

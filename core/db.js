@@ -1,10 +1,12 @@
+const { Sequelize } = require('sequelize');
 
-import mysql from 'mysql2';
-export default class DBConnection {
-      conn = mysql.createConnection({
-            host: "localhost",
-            user:"root",
-            database:"crud",
-            password: "",
-      });
+class DBConnection {
+  constructor() {
+    this.sequelize = new Sequelize('petsdb', 'root', '', {
+      host: 'localhost',
+      dialect: 'mysql',
+    });
+  }
 }
+
+module.exports = DBConnection;

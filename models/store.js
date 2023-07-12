@@ -6,40 +6,32 @@ const sequelize = new Sequelize('petsdb', 'root', '', {
   dialect: 'mysql',
 });
 
-const User = sequelize.define('User', {
+const Store = sequelize.define('Store', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  username: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  firstName: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  lastName: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  phone: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  userStatus: {
+  petId: {
     type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  shipDate: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  status: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  complete: {
+    type: DataTypes.BOOLEAN,
     allowNull: false,
   },
 });
 
-module.exports = User;
+module.exports = Store;
