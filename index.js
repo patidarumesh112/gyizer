@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 app.use(function(err, req, res, next) {
   if(err) {
-    res.status(400).json(response);
+    res.status(400).json({'response':"bad request"});
   } else {
     next();
   }
@@ -29,10 +29,10 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
+app.use('/api', petsRoutes);
 app.use('/api', userRoutes);
 
 
-app.use('/api', petsRoutes);
 app.use('/api', storeRoutes);
 const server = app.listen(PORT, () => {
   console.log(`Using environment: localhost...`);

@@ -16,6 +16,7 @@ async function addPet(req, res) {
   const petData = req.body;
 
   try {
+    console.log(petData)
     const pet = await Pet.create(petData);
     res.json(pet);
   } catch (error) {
@@ -24,7 +25,8 @@ async function addPet(req, res) {
 }
 
 // Update an existing pet
-async function updatePet(req, res) {
+async function updatePetInfo(req, res) {
+  console.log("ccch==")
   const petData = req.body;
 
   try {
@@ -67,6 +69,7 @@ async function findPetsByTags(req, res) {
 
 // Find pet by ID
 async function findPetById(req, res) {
+  console.log("pet by id")
   const { petId } = req.params;
 
   try {
@@ -99,6 +102,7 @@ async function updatePetWithFormData(req, res) {
       res.json(pet);
     }
   } catch (error) {
+    console.log(error)
     res.status(400).json({ error: 'Invalid input' });
   }
 }
@@ -124,7 +128,7 @@ async function deletePet(req, res) {
 module.exports = {
   uploadPetImage,
   addPet,
-  updatePet,
+  updatePetInfo,
   findPetsByStatus,
   findPetsByTags,
   findPetById,

@@ -9,6 +9,7 @@ async function placeOrder(req, res) {
     const order = await Store.create(orderData);
     res.json(order);
   } catch (error) {
+    console.log(error)
     res.status(400).json({ error: 'Invalid Order' });
   }
 }
